@@ -173,7 +173,7 @@ var myGameArea = {
         this.canvas.height = 400;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.frameNo = 9499;
+        this.frameNo = 1;
         this.interval = setInterval(updateGameArea, 20);
         },
     clear : function() {
@@ -321,8 +321,8 @@ function updateGameArea() {
         minGap = 180;
         maxGap = 230;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        //myObstacles.push(new component(10, height, "maroon", y, 400 - height));
-        //myObstacles.push(new component(10, height, "black", y + gap, 0));
+        myObstacles.push(new component(10, height, "maroon", y, 400 - height));
+        myObstacles.push(new component(10, height, "black", y + gap, 0));
     }
 
     if(myGameArea.frameNo == 500){
