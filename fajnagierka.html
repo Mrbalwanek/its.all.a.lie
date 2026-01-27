@@ -10,18 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="ikonka.ico">
 
-    <video id="bgvhs" loop muted style="display: none;"><source src="pliki/vhs.mp4" type="video/mp4"></video>
+    <video id="bgvhs" loop muted style="display: none;"><source src="vhs.mp4" type="video/mp4"></video>
     
-    <audio id="bossMusic" loop src="pliki/its.all.a.lie.mp3"></audio>
-    <audio id="main" src="pliki/chill.mp4"></audio>
-    <audio id="mhpl" src="pliki/myhp.mp3"></audio>
-    <audio id="hpl" src="pliki/hp.mp3"></audio>
-    <audio id="f" src="pliki/finale.mp3"></audio>
-    <audio id="y" src="pliki/yay.mp3"></audio>
-    <audio id="ded" src="pliki/youdied.mp3"></audio>
-    <audio id="nohp" src="pliki/ialwayscomeback.mp3"></audio>
-    <audio id="c" src="pliki/crash.mp3"></audio>
-    <audio id="bettermemory" src="pliki/music.mp3"></audio>
+    <audio id="bossMusic" loop src="its.all.a.lie.mp3"></audio>
+    <audio id="main" src="chill.mp4"></audio>
+    <audio id="mhpl" src="myhp.mp3"></audio>
+    <audio id="hpl" src="hp.mp3"></audio>
+    <audio id="f" src="finale.mp3"></audio>
+    <audio id="y" src="yay.mp3"></audio>
+    <audio id="ded" src="youdied.mp3"></audio>
+    <audio id="nohp" src="ialwayscomeback.mp3"></audio>
+    <audio id="c" src="crash.mp3"></audio>
+    <audio id="bettermemory" src="music.mp3"></audio>
     
     <title id="gam">fajnagierka :D</title>
 </head>
@@ -30,11 +30,11 @@
 <button id="buton" onclick="noescape = false; startGame()" style="display: none;">Zagraj Ponownie</button>
 <div id="di" style="font-size: 20px; margin-left: 5px;"></div>
 <div id="health">
-    <img src="pliki/heart.png" id="I" style="display: none"></img>
-    <img src="pliki/heart.png" id="II" style="display: none"></img>
-    <img src="pliki/heart.png" id="III" style="display: none"></img>
+    <img src="heart.png" id="I" style="display: none"></img>
+    <img src="heart.png" id="II" style="display: none"></img>
+    <img src="heart.png" id="III" style="display: none"></img>
 </div>
-<img src="pliki/mob.png" id="mob" style="display: none;">
+<img src="mob.png" id="mob" style="display: none;">
 <p id="txt1" style="display: none;">DIE YOU STUPID BRAT</p>
 <div id="healthboss">
     <div class="h1"></div>
@@ -50,7 +50,7 @@
 </div>
 <div id="killingboss" onclick="minusbosshp()"></div>
 <div id="red" style="display: none"></div>
-<img id="dedscreen" style="display: none" src="pliki/died.png">
+<img id="dedscreen" style="display: none" src="died.png">
 <div id="theend" style="display: none">
     <div style="color: red; font-size: 60px; margin-top: 70px">"its.all.a.lie"</div><br>
     <div style="font-size: 30px; margin-top: 150px" >YOU WON</div>
@@ -158,7 +158,7 @@ function startGame(){
     document.body.style.filter = "none";
     document.body.style.fontFamily = "Consolas";
     clearInterval(myGameArea.interval);
-    myGamePiece = new component(30, 30, "pliki/grassblock.jpg", 10, 120, "zdjecie");
+    myGamePiece = new component(30, 30, "grassblock.jpg", 10, 120, "zdjecie");
     myGamePiece.gravity = 1;
     myScore = new component("30px", "Consolas", "limegreen", 280, 40, "text");
     window.addEventListener('contextmenu', e => e.preventDefault());
@@ -356,7 +356,7 @@ function updateGameArea() {
     if(myGameArea.frameNo == 5500){
         myScore.color = "#4a0e0e";
         myScore.height = "Rubik Glitch, system-ui";
-        changeFavicon("pliki/favmain.png");
+        changeFavicon("favmain.png");
     }
     if(myGameArea.frameNo == 5600){
         myScore.color = "black";
@@ -366,7 +366,7 @@ function updateGameArea() {
     if(myGameArea.frameNo == 6500){
         myScore.color = "#4a0e0e";
         myScore.height = "Rubik Glitch, system-ui";
-        changeFavicon("pliki/favmain.png");
+        changeFavicon("favmain.png");
     }
     if(myGameArea.frameNo == 6600){
         myScore.color = "black";
@@ -376,7 +376,7 @@ function updateGameArea() {
     if(myGameArea.frameNo == 7200){
         myScore.color = "#4a0e0e";
         myScore.height = "Rubik Glitch, system-ui";
-        changeFavicon("pliki/favmain.png");
+        changeFavicon("favmain.png");
     }
     if(myGameArea.frameNo == 7300){
         myScore.color = "black";
@@ -386,7 +386,7 @@ function updateGameArea() {
     if(myGameArea.frameNo == 8000){
        myScore.color = "#4a0e0e";
        myScore.height = "Rubik Glitch, system-ui";
-       changeFavicon("pliki/favmain.png");
+       changeFavicon("favmain.png");
     }
     if(myGameArea.frameNo == 8100){
         myScore.color = "black";
@@ -396,7 +396,7 @@ function updateGameArea() {
     if(myGameArea.frameNo == 8800){
         myScore.color = "#4a0e0e";
         myScore.height = "Rubik Glitch, system-ui";
-        changeFavicon("pliki/favmain.png");
+        changeFavicon("favmain.png");
     }
     if(myGameArea.frameNo == 8900){
         myScore.color = "black";
@@ -411,7 +411,7 @@ function updateGameArea() {
             myScore.color = "white";
             myScore.height = "Rubik Glitch, system-ui";
             document.body.style.color = "white";
-            changeFavicon("pliki/favmain.png");
+            changeFavicon("favmain.png");
         }
         if(everyinterval(80)){
             myScore.color = "black";
@@ -437,14 +437,14 @@ function updateGameArea() {
         speed = -18;
         chill.pause();
         betterthenlast.play();
-        changeFavicon("pliki/fav1.png");
+        changeFavicon("fav1.png");
         myScore.color = "white";
         document.body.style.fontFamily = "Rubik Glitch, system-ui";
         document.body.style.color = "white";
         myGameArea.canvas.style.cursor = "progress";
         document.getElementById("gam").innerHTML = "???";
         myScore.text="ERROR: " + (10000 + its_all_a_lie);
-        myGamePiece.image.src = "pliki/glitchyblock.png";
+        myGamePiece.image.src = "glitchyblock.png";
         if(everyinterval(15)){
             let color = ["#8a7b45", "#706539", "#5e5530", "#4d4627", "#3d381f"];
             document.body.style.backgroundColor = color[Math.floor(Math.random() * color.length)];
@@ -890,7 +890,7 @@ function updateGameArea() {
             document.getElementById("I").style.filter = "brightness(10%)";
             document.getElementById("II").style.filter = "saturate(8)";
             document.getElementById("III").style.filter = "brightness(10%)";
-            myGamePiece.image.src = "pliki/glitchyblock.png";
+            myGamePiece.image.src = "glitchyblock.png";
         }
     } else if(hp <= 0){
         document.getElementById("I").style.filter = "brightness(10%)";
