@@ -5,6 +5,8 @@ var speed;
 var kliks;
 var its_all_a_lie;
 let reset = false;
+let bossMusicStarted = false;
+let checkpoint = false;
 var keys = {};
 var hp;
 let video = document.getElementById("bgvhs");
@@ -18,7 +20,7 @@ var appear;
 let healths = document.querySelectorAll('#healthboss div');
 let myhploss = document.getElementById("mhpl");
 let hploss = document.getElementById("hpl");
-let noescape = false;
+let noescape = true;
 let final = document.getElementById("f");
 var type;
 var color;
@@ -37,17 +39,19 @@ function startGame(){
     kliks = 0;
     speed = -5;
     its_all_a_lie = 0;
-    if(noescape == true){
+    if(checkpoint){
+        noescape = true;
         bosshp = 5;
         hp = 1;
     } else{
+        noescape = false;
         hp = 3;
         bosshp = 11;
     }
     alrt = false;
     appear = false;
     if(reset == false){
-        alert("Kliknij spację aby skoczyć. Na start kliknij 2 razy w spację.");
+        alert("Press space to jump. To start, double-click the spacebar.");
         alert("Good luck.");
     }
     reset = false;
@@ -63,6 +67,7 @@ function startGame(){
     betterthenlast.playbackRate = 0.85;
     bossmusic.pause();
     bossmusic.currentTime = 0;
+    bossMusicStarted = false;
     died.pause();
     died.currentTime = 0;
     final.pause();
@@ -82,9 +87,9 @@ function startGame(){
     document.getElementById("mob").style.display = "none";
     document.getElementById("healthboss").style.display = "none";
     document.getElementById("killingboss").style.display = "none";
-    document.getElementById("di").innerHTML = "Liczba kliknięć: " + kliks;
+    document.getElementById("di").innerHTML = "Clicks: " + kliks;
     document.getElementById("buton").style = "display: none";
-    document.getElementById("buton").innerHTML = "Zagraj Ponownie";
+    document.getElementById("buton").innerHTML = "Play Again";
     document.getElementById("gam").innerHTML = "fajnagierka :D";
     myGameArea.canvas.style.cursor = "default";
     myGameArea.canvas.style.marginTop = "8px";
@@ -393,7 +398,7 @@ function updateGameArea() {
     } 
     
     if (myGameArea.frameNo < 10000){
-        myScore.text="WYNIK: " + myGameArea.frameNo;
+        myScore.text="SCORE: " + myGameArea.frameNo;
     }
     
     if(its_all_a_lie >= 90000){
@@ -404,7 +409,12 @@ function updateGameArea() {
         if(alrt == true){
             betterthenlast.pause();
             if(noescape == false){
-                bossmusic.play();
+                if(!bossMusicStarted){
+                    bossMusicStarted = true;
+                    bossmusic.currentTime = 12;
+                    bossmusic.playbackRate = 1;
+                    bossmusic.play();
+                }
             }
         }
         document.body.style.backgroundColor = "#3d381f";
@@ -427,8 +437,8 @@ function updateGameArea() {
             hitTimer = 100;
             final.play();
         } else{
-            alert("WASD - poruszanie się");
-            alert("WASD - poruszanie się!");
+            alert("WASD - moving");
+            alert("WASD - moving!");
             document.getElementById("txt1").style.display = "block";
             f = myGameArea.frameNo;
         }
@@ -752,10 +762,12 @@ function updateGameArea() {
             myGamePiece.gravitySpeed = 0;
             attacks.splice(i, 1);
             i--;
+            continue;
         }
         if (attacks[i].x < -300 || attacks[i].x > myGameArea.canvas.width + 300 || attacks[i].y < -300 || attacks[i].y > myGameArea.canvas.height + 300){
             attacks.splice(i, 1);
             i--;
+            continue;
     }
     }
 
@@ -849,6 +861,7 @@ function updateGameArea() {
             death = 0;
             noescape = true;
             reset = true;
+            checkpoint = true;
             startGame();
             return;
         } else if(noescape == false && waity == true && bosshp > 6){
@@ -856,10 +869,12 @@ function updateGameArea() {
             reset = true;
             startGame();
             return;
+        }else if(waity){
+            death = 0;
+            reset = true;
+            startGame();
+            return;
         } else{
-            document.getElementById("dedscreen").style.display = "block";
-            final.pause();
-            died.play();
             return;
         }
     }
@@ -908,7 +923,7 @@ function accelerate(n) {
     if(reset == false){
         kliks += 1;
     }
-    document.getElementById("di").innerHTML = "Liczba kliknięć: " + kliks;
+    document.getElementById("di").innerHTML = "Clicks: " + kliks;
     let znak = false; 
     if(myGamePiece.gravity > 1){ 
         myGamePiece.gravity = n;
