@@ -20,7 +20,7 @@ var appear;
 let healths = document.querySelectorAll('#healthboss div');
 let myhploss = document.getElementById("mhpl");
 let hploss = document.getElementById("hpl");
-let noescape = true;
+let noescape = false;
 let final = document.getElementById("f");
 var type;
 var color;
