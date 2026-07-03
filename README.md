@@ -147,7 +147,7 @@ Everything quickly returns to normal...
 
 ---
 
-## 🟨 The Yellow World
+## 👁 The Illusion Breaks
 
 <p align="center">
     <img src="screenshots/glitchyss2.png" width="750">
